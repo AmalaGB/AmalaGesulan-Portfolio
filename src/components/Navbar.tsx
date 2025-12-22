@@ -44,7 +44,7 @@ const Navbar = () => {
               className="text-emerald-400 text-lg sm:text-xl font-bold cursor-pointer"
               onClick={() => scrollToSection("home")}
             >
-              Manoj Konda
+              Amala Gesulan
             </div>
 
             {/* Desktop Menu */}
@@ -149,18 +149,7 @@ const Navbar = () => {
                   onClick={() => scrollToSection("publications")}
                   className="text-gray-300 hover:text-emerald-400 transition-colors text-left py-3 border-b border-slate-700/50"
                 >
-                  Publications
-                </button>
-                <button
-                  onClick={() => scrollToSection("blog")}
-                  className="text-gray-300 hover:text-emerald-400 transition-colors text-left py-3 border-b border-slate-700/50"
-                >
-                  Blog
-                </button>
-                <button
-                  onClick={() => scrollToSection("experience")}
-                  className="text-gray-300 hover:text-emerald-400 transition-colors text-left py-3 border-b border-slate-700/50"
-                >
+    
                   Experience
                 </button>
                 <button

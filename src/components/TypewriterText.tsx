@@ -2,55 +2,42 @@ import React, { useState, useEffect } from "react";
 
 const TypewriterText = () => {
   const phrases = [
-    "Actively seeking Summer 2026 Internships",
-    "Full Stack Developer",
-    "Application Security Enthusiast",
-    "I build secure and scalable web apps.",
+    "Actively seeking Data Analyst / Data Engineer / GenAI ML roles",
+    "Data Analyst & Data Engineering Enthusiast & ML Practitioner",
+    "Turning data into actionable insights",
+    "Building scalable data pipelines and analytics systems",
   ];
 
-  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
-  const [currentText, setCurrentText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [text, setText] = useState("");
+  const [stopped, setStopped] = useState(false); // 🔑 HARD STOP FLAG
 
   useEffect(() => {
-    const currentPhrase = phrases[currentPhraseIndex];
+    if (stopped) return; // ⛔ absolutely nothing runs after stop
 
-    const timeout = setTimeout(
-      () => {
-        if (isPaused) {
-          setIsPaused(false);
-          setIsDeleting(true);
+    const currentPhrase = phrases[phraseIndex];
+
+    const timeout = setTimeout(() => {
+      setText(currentPhrase.slice(0, text.length + 1));
+
+      // when phrase fully typed
+      if (text === currentPhrase) {
+        // if last phrase → STOP FOREVER
+        if (phraseIndex === phrases.length - 1) {
+          setStopped(true);
           return;
         }
 
-        if (isDeleting) {
-          setCurrentText(currentPhrase.substring(0, currentText.length - 1));
-
-          if (currentText === "") {
-            setIsDeleting(false);
-            setCurrentPhraseIndex((prev) => (prev + 1) % phrases.length);
-          }
-        } else {
-          setCurrentText(currentPhrase.substring(0, currentText.length + 1));
-
-          if (currentText === currentPhrase) {
-            setIsPaused(true);
-          }
-        }
-      },
-      isDeleting ? 40 : isPaused ? 1800 : 75
-    );
+        // move to next phrase
+        setPhraseIndex(phraseIndex + 1);
+        setText("");
+      }
+    }, 75);
 
     return () => clearTimeout(timeout);
-  }, [currentText, isDeleting, isPaused, currentPhraseIndex]);
+  }, [text, phraseIndex, stopped]);
 
-  return (
-    <span className="text-emerald-400">
-      {currentText}
-      <span className="animate-pulse">|</span>
-    </span>
-  );
+  return <span className="text-teal-400">{text}</span>;
 };
 
 export default TypewriterText;

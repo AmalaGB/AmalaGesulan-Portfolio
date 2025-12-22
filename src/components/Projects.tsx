@@ -1,61 +1,88 @@
 import { ExternalLink, Github } from "lucide-react";
-import { FaCar, FaDatabase, FaShieldAlt } from "react-icons/fa";
+import {
+  FaDatabase,
+  FaChartLine,
+  FaTruck,
+  FaHotel,
+  FaWalking,
+} from "react-icons/fa";
 
 const Projects = () => {
   const projects = [
     {
-      title: "ConfigGuardian",
-      // period: "Feb 2025 – Present",
-      // category: "Full Stack Developer",
+      title: "NLP-Based Named Entity Recognition",
       description:
-        "LLM-powered config auditor fortifying DevSecOps pipelines. Scans Dockerfiles & Kubernetes YAMLs for misconfigurations, scores severity in real time using Gemini, and anchors verified reports on Fetch.ai’s decentralized ledger.",
+        "Built a domain-specific complaint classifier using SpaCy and hybrid NLP techniques. Achieved a 93% F1-score by combining rule-based patterns with machine learning, automating e-commerce complaint categorization and reducing manual review effort.",
       techStack: [
-        "TypeScript",
-        "Node.js",
-        "Express.js",
-        "React",
-        "Gemini LLM APIs",
-        "Fetch.ai Agentverse",
-      ],
-      icon: <FaShieldAlt className="w-6 h-6" />,
-      codeLink: "https://github.com/kmanoj03/config-guardian",
-      liveLink: "#",
-    },
-    {
-      title: "Memory Engine",
-      // period: "Oct 2024 – Jan 2025",
-      // category: "Full Stack Developer",
-      description:
-        "Intelligent debugging memory that recalls past production fixes with hybrid semantic + metadata search. Powered by MongoDB Atlas Vector Search to surface high-fidelity matches and boost recall accuracy by 25%.",
-      techStack: [
-        "TypeScript",
-        "Node.js",
-        "Express.js",
-        "MongoDB Atlas Vector Search",
-        "LangChain",
+        "Python",
+        "SpaCy",
+        "RegEx",
+        "Scikit-learn",
+        "NLP",
+        "Machine Learning",
       ],
       icon: <FaDatabase className="w-6 h-6" />,
-      codeLink: "https://github.com/kmanoj03/memory-engine",
+      codeLink: "https://github.com/AmalaGB/NLP-Based-Named-Entity-Recognition-",
       liveLink: "#",
     },
     {
-      title: "UniRide",
-      // period: "Sep 2024 – Mar 2025",
-      // category: "Full Stack Developer",
+      title: "Kafka Data Pipeline for Sports Analytics",
       description:
-        "Campus-scale ride-sharing app built on the MERN stack. Features live Socket.io chat, host-controlled ride management, and CRON-based reliability layer, hardened through threat modeling to reduce security risks by 30%.",
+        "Designed and implemented a real-time streaming pipeline using Apache Kafka. Leveraged topics, partitions, and consumer groups with replication and offset management to ensure fault-tolerant, zero-loss data ingestion.",
       techStack: [
-        "TypeScript",
-        "Node.js",
-        "Express.js",
-        "React.js",
-        "MongoDB",
-        "Socket.io",
-        "TailwindCSS",
-        "CRON Jobs",
+        "Apache Kafka",
+        "PySpark",
+        "Apache Airflow",
+        "Python",
+        "Streaming Data",
+        "ETL Pipelines",
       ],
-      icon: <FaCar className="w-6 h-6" />,
-      codeLink: "https://github.com/kmanoj03/UniRide",
+      icon: <FaChartLine className="w-6 h-6" />,
+      codeLink: "https://github.com/AmalaGB/Kafka-beginning",
+      liveLink: "#",
+    },
+    {
+      title: "Pharma Shipment Monitoring System",
+      description:
+        "Developed an IoT-enabled pharmaceutical shipment monitoring system with real-time dashboards to track shipment conditions and improve compliance visibility across the supply chain.",
+      techStack: [
+        "IoT",
+        "Arduino Cloud",
+        "Python",
+        "Real-Time Analytics",
+        "Dashboards",
+      ],
+      icon: <FaTruck className="w-6 h-6" />,
+      codeLink: "https://github.com/AmalaGB/Pharmaceutical-Shipment-Monitoring",
+      liveLink: "#",
+    },
+    {
+      title: "Hotel Management System",
+      description:
+        "Built a comprehensive hotel management system to handle bookings, customer records, and billing operations. Focused on efficient data handling, modular design, and backend-driven business logic.",
+      techStack: [
+        "Java",
+        "SQL",
+        "Backend Development",
+        "Database Design",
+      ],
+      icon: <FaHotel className="w-6 h-6" />,
+      codeLink: "#",
+      liveLink: "#",
+    },
+    {
+      title: "Gait Identification for Parkinson’s Disease",
+      description:
+        "Developed a machine learning–based gait analysis system to identify Parkinson’s Disease using walking pattern features extracted from video data, aiming for a low-cost and accessible diagnostic approach.",
+      techStack: [
+        "Python",
+        "Machine Learning",
+        "Computer Vision",
+        "Deep Learning",
+        "Healthcare Analytics",
+      ],
+      icon: <FaWalking className="w-6 h-6" />,
+      codeLink: "#",
       liveLink: "#",
     },
   ];
@@ -64,7 +91,9 @@ const Projects = () => {
     <section id="projects" className="py-12 sm:py-16 lg:py-20 bg-slate-900">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-10 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-emerald-400 mb-4">Projects</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-emerald-400 mb-4">
+            Projects
+          </h2>
         </div>
 
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -78,36 +107,31 @@ const Projects = () => {
                 <div className="flex space-x-2">
                   <a
                     href={project.codeLink}
-                    className="text-gray-400 hover:text-emerald-400 transition-colors"
+                    className="text-gray-400 hover:hover:bg-teal-400 transition-colors"
                   >
                     <Github size={20} />
                   </a>
                   <a
                     href={project.liveLink}
-                    className="text-gray-400 hover:text-emerald-400 transition-colors"
+                    className="text-gray-400 hover:hover:bg-teal-400 transition-colors"
                   >
                     <ExternalLink size={20} />
                   </a>
                 </div>
               </div>
 
-              <h3 className="text-emerald-400 text-lg sm:text-xl font-bold mb-2">
+              <h3 className="hover:bg-teal-400 text-lg sm:text-xl font-bold mb-2">
                 {project.title}
               </h3>
-              {((project as any).period || (project as any).category) && (
-                <p className="text-gray-400 text-xs sm:text-sm mb-4">
-                  {(project as any).period && (project as any).category
-                    ? `${(project as any).period} | ${(project as any).category}`
-                    : (project as any).period || (project as any).category}
-                </p>
-              )}
 
               <p className="text-gray-300 text-xs sm:text-sm mb-6 leading-relaxed">
                 {project.description}
               </p>
 
               <div className="mb-4 sm:mb-6">
-                <p className="text-gray-400 text-xs sm:text-sm mb-2">Tech Stack:</p>
+                <p className="text-gray-400 text-xs sm:text-sm mb-2">
+                  Tech Stack:
+                </p>
                 <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {project.techStack.map((tech) => (
                     <span
@@ -118,17 +142,6 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
-              </div>
-
-              <div className="flex space-x-4">
-                {/* <button className="flex items-center text-gray-400 hover:text-emerald-400 transition-colors text-sm">
-                  <Github size={16} className="mr-1" />
-                  Code
-                </button>
-                <button className="flex items-center text-gray-400 hover:text-emerald-400 transition-colors text-sm">
-                  <ExternalLink size={16} className="mr-1" />
-                  Live
-                </button> */}
               </div>
             </div>
           ))}

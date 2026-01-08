@@ -4,7 +4,7 @@ const Experience = () => {
   const experiences = [
     {
       title: "Ganit Inc.",
-      role: "Data Engineer Intern",
+      role: "Gen AI & Data Engineer Intern",
       period: "Sep 2025 – Present",
       type: "work",
       description: [
@@ -120,3 +120,4 @@ const Experience = () => {
 };
 
 export default Experience;
+
